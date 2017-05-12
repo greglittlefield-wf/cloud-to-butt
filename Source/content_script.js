@@ -6,17 +6,17 @@ function walk(node)
 	// http://is.gd/mwZp7E
 	
 	var child, next;
-	
-	if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
-	    || node.classList.indexOf('ace_editor') > -1) {
-		return;
-	}
 
 	switch ( node.nodeType )  
 	{
 		case 1:  // Element
 		case 9:  // Document
 		case 11: // Document fragment
+			if (node.tagName.toLowerCase() === 'input' || node.tagName.toLowerCase() === 'textarea'
+					|| node.classList.contains('ace_editor')) {
+				return;
+			}
+
 			child = node.firstChild;
 			while ( child ) 
 			{
@@ -36,10 +36,8 @@ function handleText(textNode)
 {
 	var v = textNode.nodeValue;
 
-	v = v.replace(/\bThe Cloud\b/g, "My Butt");
-	v = v.replace(/\bThe cloud\b/g, "My butt");
-	v = v.replace(/\bthe Cloud\b/g, "my Butt");
-	v = v.replace(/\bthe cloud\b/g, "my butt");
+	v = v.replace(/\bDart/g, "Fart");
+	v = v.replace(/\bdart\b/g, "fart");
 	
 	textNode.nodeValue = v;
 }
