@@ -37,8 +37,8 @@ function handleText(textNode)
 	var v = textNode.nodeValue;
 
 	v = v.replace(/\bDart/g, "Fart");
-	v = v.replace(/\bdart\b/g, "fart");
-	v = v.replace(/\bdartlang\b/g, "fartlang");
+	v = v.replace(/dart\b/g, "fart");
+	v = v.replace(/\bdart/g, "fart");
 
 	textNode.nodeValue = v;
 }
